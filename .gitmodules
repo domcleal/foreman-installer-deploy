@@ -16,3 +16,9 @@
 [submodule "mcollective"]
 	path = mcollective
 	url = git://github.com/puppetlabs/puppetlabs-mcollective
+[submodule "mount_providers"]
+	path = mount_providers
+	url = git://github.com/puppetlabs/puppetlabs-mount_providers.git
+[submodule "augeasproviders"]
+	path = augeasproviders
+	url = git://github.com/hercules-team/augeasproviders.git
