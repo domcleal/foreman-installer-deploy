@@ -1,0 +1,132 @@
+{
+  "name": "puppetlabs-mount_providers",
+  "version": "0.0.2",
+  "source": "git://github.com/puppetlabs/puppetlabs-mount_providers.git",
+  "author": "Puppet Labs",
+  "license": "Apache License, Version 2.0",
+  "summary": "The mounttab and mountpoint resource type",
+  "description": "The mounttab and mountpoint resource type",
+  "project_page": "https://github.com/puppetlabs/puppetlabs-mount_providers",
+  "dependencies": [
+
+  ],
+  "types": [
+    {
+      "name": "mountpoint",
+      "doc": "Manages currently mounted volumes, i.e. the live state of the filesystem.\nSee the discussion under the mounttab type for usage.",
+      "properties": [
+        {
+          "name": "ensure",
+          "doc": "The basic property that the resource should be in.  Valid values are `present`, `absent`."
+        },
+        {
+          "name": "device",
+          "doc": "The device providing the mount.  This can be whatever\n      device is supporting by the mount, including network\n      devices or devices specified by UUID rather than device\n      path, depending on the operating system.  If you already have an entry\n      in your fstab (or you use the mounttab type to create such an entry),\n      it is generally not necessary to specify the fstype explicitly"
+        },
+        {
+          "name": "fstype",
+          "doc": "The mount type.  Valid values depend on the\n      operating system.  If you already have an entry in your fstab (or you use\n      the mounttab type to create such an entry), it is generally not necessary to\n      specify the fstype explicitly"
+        }
+      ],
+      "parameters": [
+        {
+          "name": "name",
+          "doc": "The path to the mount point."
+        },
+        {
+          "name": "options",
+          "doc": "Mount options for the mounts, as they would\n      appear in the fstab."
+        },
+        {
+          "name": "remounts",
+          "doc": "Whether the mount can be remounted  `mount -o remount`.  If\n      this is false, then the filesystem will be unmounted and remounted\n      manually, which is prone to failure.  Valid values are `true`, `false`."
+        }
+      ],
+      "providers": [
+        {
+          "name": "linux",
+          "doc": "Required binaries: `mount`, `umount`.  Default for `kernel` == `linux`."
+        },
+        {
+          "name": "solaris",
+          "doc": "Required binaries: `mount`, `umount`.  Default for `operatingsystem` == `solaris`."
+        }
+      ]
+    },
+    {
+      "name": "mounttab",
+      "doc": "Manages entries in the filesystem table. This is usually, but not\nnecessarily, used in conjunction with the mountpoint type to manage both the\ncurrent-running state of mounts (mountpoint) with the fstab entries which load\nthem at boot time (mounttab). An easy way to manage both at the same time\nis with a defined type that wraps both resources in one call, since the three most\nimportant options (the device name, the mountpoint, and any mount options) are\nshared between the two types.",
+      "properties": [
+        {
+          "name": "ensure",
+          "doc": "The basic property that the resource should be in.  Valid values are `present`, `absent`."
+        },
+        {
+          "name": "device",
+          "doc": "The device providing the mount.  This can be whatever\n        device is supporting by the mount, including network\n        devices or devices specified by UUID rather than device\n        path, depending on the operating system."
+        },
+        {
+          "name": "blockdevice",
+          "doc": "The device to fsck.  This is property is only valid\n        on Solaris, and in most cases will default to the correct\n        value."
+        },
+        {
+          "name": "fstype",
+          "doc": "The mount type.  Valid values depend on the\n        operating system.  This is a required option."
+        },
+        {
+          "name": "options",
+          "doc": "Mount options for the mount.  More than one option should\n        be specified as an array"
+        },
+        {
+          "name": "pass",
+          "doc": "The pass in which the mount is checked."
+        },
+        {
+          "name": "atboot",
+          "doc": "Whether to mount the mount at boot.  Not all platforms\n        support this.  Valid values are `yes` (also called `true`), `no` (also called `false`)."
+        },
+        {
+          "name": "dump",
+          "doc": "Whether to dump the mount.  Not all platform support this.\n        Valid values are `1` or `0`. or `2` on FreeBSD, Default is `0`.  Values can match `/(0|1)/`."
+        },
+        {
+          "name": "target",
+          "doc": "The file in which to store the mount table.  Only used by\n        those providers that write to disk."
+        }
+      ],
+      "parameters": [
+        {
+          "name": "name",
+          "doc": "The mount path for the mount."
+        }
+      ],
+      "providers": [
+        {
+          "name": "parsed",
+          "doc": ""
+        }
+      ]
+    }
+  ],
+  "checksums": {
+    "CHANGELOG": "cf6be650465c50846f8085c5ebf9a439",
+    "Modulefile": "d76884bf0293414f2c8585fe87887976",
+    "README.markdown": "fd174d9ff52af9c60cb2bf5f411393f8",
+    "README_DEVELOPER.markdown": "030f475775dc81161a91535614056ee6",
+    "Rakefile": "d2c0725a2e84521a5dd812944f5b4c9b",
+    "lib/puppet/provider/mountpoint/linux.rb": "bc54cb4fe7739c9936c3f3bd8620b4a2",
+    "lib/puppet/provider/mountpoint/solaris.rb": "c3724ec31670d18d6bb8d7234d43e12a",
+    "lib/puppet/provider/mountpoint.rb": "a91f4039116522a8dac16385647d42c4",
+    "lib/puppet/provider/mounttab/parsed.rb": "1ca6b4fb0e9a5b6599777a268ee21cbb",
+    "lib/puppet/type/mountpoint.rb": "640692f380c798ab70d63facea43a6df",
+    "lib/puppet/type/mounttab.rb": "f036f26730a3299fa548485383317a68",
+    "manifests/do.pp": "4eff6f4a8d22831eed26611414b8b70c",
+    "manifests/init.pp": "00584a7280b7c9a67f716bf44a3253bd",
+    "spec/spec_helper.rb": "836dc080d915d45ee9577cdde655d1b8",
+    "spec/unit/provider/mountpoint/linux_spec.rb": "6651e1c9fc73c1c67e5f0d3d181f8e42",
+    "spec/unit/provider/mountpoint/solaris_spec.rb": "cdcd8b58fe9dfc0775ca842bc9421ca1",
+    "spec/unit/provider/mounttab/parsed_spec.rb": "f1f18ff491a3a706c6c1948956e8d682",
+    "spec/unit/type/mountpoint_spec.rb": "d0631b134f6a520bb93ebb7f4185e8e8",
+    "spec/unit/type/mounttab_spec.rb": "ef67202d36f8967c8e8c156ad5eada69"
+  }
+}

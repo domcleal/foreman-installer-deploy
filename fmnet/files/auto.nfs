@@ -1,0 +1,1 @@
+* -fstype=nfs,soft,intr,acregmin=0,acregmax=3,acdirmin=0,acdirmax=3 nfs:/&

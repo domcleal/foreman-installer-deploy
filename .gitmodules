@@ -1,3 +1,18 @@
 [submodule "foreman-installer"]
 	path = foreman-installer
 	url = git://github.com/theforeman/foreman-installer.git
+[submodule "java"]
+	path = java
+	url = ../../puppet/puppetlabs-java
+[submodule "activemq"]
+	path = activemq
+	url = ../../puppet/puppetlabs-activemq
+[submodule "puppetdb"]
+	path = puppetdb
+	url = ../../puppet/puppetlabs-puppetdb
+[submodule "inifile"]
+	path = inifile
+	url = ../../puppet/puppetlabs-inifile
+[submodule "mcollective"]
+	path = mcollective
+	url = ../../mcollective/puppetlabs-mcollective
