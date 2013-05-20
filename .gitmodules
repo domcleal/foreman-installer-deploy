@@ -22,3 +22,6 @@
 [submodule "augeasproviders"]
 	path = augeasproviders
 	url = git://github.com/hercules-team/augeasproviders.git
+[submodule "mcollective-plugins"]
+	path = mcollective-plugins
+	url = git://github.com/puppetlabs/mcollective-plugins.git
