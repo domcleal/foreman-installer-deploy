@@ -5,8 +5,8 @@ set :scm, :none
 set :deploy_via, :copy
 set :copy_exclude, [".git"]
 
-set :deploy_to, "/etc/puppet/modules/production/#{application}"
-set :current_path, "/etc/puppet/modules/production/modules"
+set :deploy_to, "/etc/puppet/environments/production/#{application}"
+set :current_path, "/etc/puppet/environments/production/modules"
 
 set :user, "root"
 set :use_sudo, false
