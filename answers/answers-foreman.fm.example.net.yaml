@@ -7,7 +7,7 @@
 # See params.pp in each class for what options are available
 ---
 foreman:
-  repo: stable
+  repo: nightly
   db_password: UNSET
 puppet:
   listen: true
@@ -16,13 +16,12 @@ puppetmaster:
     - development
     - production
     - infra
-  storeconfigs: true
   storeconfigs_backend: puppetdb
 foreman_proxy:
 #  trusted_hosts:
 #    - localhost
 #    - foreman.fm.example.net
-  repo: stable
+  repo: nightly
   dhcp: true
   dhcp_gateway: 192.168.101.1
   dhcp_range: 192.168.101.50 192.168.101.200
