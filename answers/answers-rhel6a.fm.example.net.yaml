@@ -8,7 +8,7 @@
 ---
 foreman:
   repo: stable
-puppet: true
-puppetmaster: false
+puppet:
+  server: false
 foreman_proxy:
   repo: stable

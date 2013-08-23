@@ -11,12 +11,12 @@ foreman:
   db_password: UNSET
 puppet:
   listen: true
-puppetmaster:
-  environments:
+  server: true
+  server_environments:
     - development
     - production
     - infra
-  storeconfigs_backend: puppetdb
+  server_storeconfigs_backend: puppetdb
 foreman_proxy:
 #  trusted_hosts:
 #    - localhost

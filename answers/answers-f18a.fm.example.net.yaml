@@ -8,7 +8,7 @@
 ---
 foreman:
   repo: nightly
-puppet: true
-puppetmaster: true
+puppet:
+  server: true
 foreman_proxy:
   repo: nightly

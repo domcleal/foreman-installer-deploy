@@ -9,6 +9,6 @@
 foreman:
   repo: rc
 puppet: true
-puppetmaster: true
+  server: true
 foreman_proxy:
   repo: rc
